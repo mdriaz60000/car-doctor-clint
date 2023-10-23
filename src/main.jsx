@@ -7,6 +7,9 @@ import {
 import "./index.css";
 import MainLayout from "./Layout/MainLayout";
 import Home from './Pages/FullHome/Home/Home';
+import Login from './Pages/Login/Login';
+import Resister from './Pages/Register/Resister';
+import AuthProvider from "./Pages/Provider/AuthProvider";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +20,14 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Resister></Resister>,
+      },
       
     ]
   },
@@ -26,7 +37,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
 <div className=" max-w-7xl mx-auto">
 <React.StrictMode>
-    <RouterProvider router={router} />
+  <AuthProvider>
+  <RouterProvider router={router} />
+  </AuthProvider>
   </React.StrictMode>
 </div>
 );
